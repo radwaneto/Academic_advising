@@ -1,0 +1,1226 @@
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:readmore/readmore.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:your_advising/layout/cubit/cubit.dart';
+import 'package:flutter/services.dart';
+import 'package:your_advising/layout/cubit/states.dart';
+
+class android extends StatelessWidget {
+  android({Key? key}) : super(key: key);
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<advancingcubit,advancingstate>(
+      listener: (context,state){},
+      builder: (context,state){
+        var cubit = advancingcubit.get(context);
+        return Scaffold(
+          body:SingleChildScrollView(
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius:  BorderRadius.only(bottomRight:Radius.circular(60) ,bottomLeft:Radius.circular(60) ),
+                  child: Container(
+                    width: double.infinity,
+                    color:HexColor('#ffc107'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Stack(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 100.0),
+                              child: Container(
+                                width: 210,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      'مسار تعليمي',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Text(
+                                      'تطوير تطبيقات Android',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Text(
+                                      'سيأخذك هذا المسار في رحلة تتعلم من خلالها تطوير تطبيقات Android، حيث تبدأ رحلتك بتعلّم أساسيات البرمجة بلغة Kotlin مرورًا بمجموعة من المفاهيم التي تحتاجها في تطوير التطبيقات باستخدام Android Studio.',
+                                      textDirection: TextDirection.rtl,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 150.0),
+                              child: Image(
+                                width: 100,
+                                height: 100,
+
+                                image: AssetImage(
+                                  'assets/images/code.png',
+                                ),
+                              ),
+                            ),
+                          ]
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height:20 ,
+                ),
+                Container(
+                    width: double.infinity,
+                    decoration:BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                              'assets/images/background.webp',
+                            ))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Card(
+                            elevation: 12.0,
+                            shadowColor: Colors.black,
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Container(
+                                width: 320  ,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'بعد تعلمك لهذا المسار ستصبح قادراً على',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'اكتساب أهم المهارات التي يحتاجها مطوّري تطبيقات Android.',
+                                            textDirection: TextDirection.rtl,
+                                            textAlign: TextAlign.right,
+
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(bottom: 15.0),
+                                          child: Icon(
+                                            Icons.done,
+                                            size: 18,
+                                            color: Colors.blue,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          'القدرة على دخول سوق العمل كمطور تطبيقات Android.',
+                                          textDirection: TextDirection.rtl,
+                                          textAlign: TextAlign.right,
+                                        ),
+                                        Icon(
+                                          Icons.done,
+                                          size: 18,
+                                          color: Colors.blue,
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            'فهم أساسيات البرمجة باستخدام لغة Kotlin.',
+                                            textDirection: TextDirection.rtl,
+                                            textAlign: TextAlign.right,
+                                          ),
+                                        ),
+                                        Icon(
+                                          Icons.done,
+                                          size: 18,
+                                          color: Colors.blue,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text(
+                            'محتويات المسار',
+                            style: TextStyle(
+                              fontSize: 25.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 6,
+                                    blurStyle: BlurStyle.outer,
+                                    color: Colors.blue,
+                                  ),
+
+                                ]
+                            ),
+                            child: Text(
+                              '1',
+                              style: TextStyle(
+                                color: Colors.blue[350],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Card(
+                            elevation: 7,
+                            shadowColor: Colors.black,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'Android Studio COURSE',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Image(
+                                        width: 30,
+                                        height: 30,
+                                        image: AssetImage('assets/images/courses-images/Android Studio.png')),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 15.0),
+                                  child: Text(
+                                    'سنتعرف في هذهِ الدورة على أساسيات Android Studio COURSE.',
+                                    textAlign: TextAlign.start,
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 100.0),
+                                  child: RichText(
+                                      maxLines: cubit.TRue? null: 1 ,
+                                      textAlign: TextAlign.right,
+                                      text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: '\n',
+                                            ),
+                                            TextSpan(
+                                                text: ' : الروابط \n',
+                                                style: TextStyle(
+                                                  fontSize: 25.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text: 'TheNewBaghdad',
+                                                style: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: 20.0,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text:' قناة \n  ',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0
+                                                )
+                                            ),
+                                            TextSpan(
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 20.0
+                                                ),
+                                                text: '\nclick here\n',
+                                                recognizer: TapGestureRecognizer()..onTap = () async{
+                                                  Uri url = Uri.parse("https://www.youtube.com/playlist?list=PLF8OvnCBlEY3e0Yg990aAXreEru72_xWN");
+                                                  if(await canLaunchUrl(url)){
+                                                    await launchUrl(url);
+                                                  }else{
+                                                    throw "can not load url";
+                                                  }
+                                                }
+                                            ),
+                                          ]
+                                      )
+                                  ),
+                                ),
+                                Container(
+                                  width: 120.0,
+                                  child: ElevatedButton(
+                                    onPressed: (){
+                                      cubit.changeText();
+                                    },
+                                    child:Text(
+                                      cubit.TRue?'اقل':'عرض المزيد',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 6,
+                                    blurStyle: BlurStyle.outer,
+                                    color: Colors.blue,
+                                  ),
+
+                                ]
+                            ),
+                            child: Text(
+                              '2',
+                              style: TextStyle(
+                                color: Colors.blue[350],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Card(
+                            elevation: 7,
+                            shadowColor: Colors.black,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'Kotlin ',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Image(
+                                        width: 30,
+                                        height: 30,
+                                        image: AssetImage('assets/images/courses-images/kotlin.png')),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 15.0),
+                                  child: Text(
+                                    'سنتعرف في هذه الدورة علي اساسيات لغة kotlin حيث سنستخدم مكتبات جافا لانشاء وتطوير تطبيقات الأندرود و تطبيقات الويب',
+                                    textAlign: TextAlign.start,
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 100),
+                                  child: RichText(
+                                      maxLines: cubit.TRue? null: 1,
+                                      textAlign: TextAlign.right,
+                                      text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: '\n',
+                                            ),
+                                            TextSpan(
+                                                text: ' : الروابط \n',
+                                                style: TextStyle(
+                                                  fontSize: 25.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text: 'TheNewBaghdad',
+                                                style: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: 20.0,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text:' قناة \n  ',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0
+                                                )
+                                            ),
+                                            TextSpan(
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 20.0
+                                                ),
+                                                text: '\nclick here\n',
+                                                recognizer: TapGestureRecognizer()..onTap = () async{
+                                                  Uri url = Uri.parse("https://www.youtube.com/playlist?list=PLF8OvnCBlEY2w-zdVPozupapiKzLzpyUZ");
+                                                  if(await canLaunchUrl(url)){
+                                                    await launchUrl(url);
+                                                  }else{
+                                                    throw "can not load url";
+                                                  }
+                                                }
+                                            ),
+                                          ]
+                                      )
+                                  ),
+                                ),
+                                Container(
+                                  width: 120.0,
+                                  child: ElevatedButton(
+                                    onPressed: (){
+                                      cubit.changeText();
+                                    },
+                                    child:Text(
+                                      cubit.TRue?'اقل':'عرض المزيد',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 6,
+                                    blurStyle: BlurStyle.outer,
+                                    color: Colors.blue,
+                                  ),
+
+                                ]
+                            ),
+                            child: Text(
+                              '3',
+                              style: TextStyle(
+                                color: Colors.blue[350],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Card(
+                            elevation: 7,
+                            shadowColor: Colors.black,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'SQL',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Image(
+                                        width: 30,
+                                        height: 30,
+                                        image: AssetImage('assets/images/courses-images/sql.png')),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 15.0),
+                                  child: Text(
+                                    'سنتعرف في هذهِ الدورة على أساسيات SQL في التعامل مع قواعد البيانات وإدارة محتوياتها من تخزين البيانات، وعرضها، والتعديل عليها، وكذلك حذفها.',
+                                    textAlign: TextAlign.start,
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 100),
+                                  child: RichText(
+                                      maxLines: cubit.TRue? null: 1,
+                                      textAlign: TextAlign.right,
+                                      text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: '\n',
+                                            ),
+                                            TextSpan(
+                                                text: ' : الروابط \n',
+                                                style: TextStyle(
+                                                  fontSize: 25.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text: 'Wael abo hamza',
+                                                style: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: 20.0,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text:' قناة \n  ',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0
+                                                )
+                                            ),
+                                            TextSpan(
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 20.0
+                                                ),
+                                                text: '\nclick here\n',
+                                                recognizer: TapGestureRecognizer()..onTap = () async{
+                                                  Uri url = Uri.parse("https://www.youtube.com/playlist?list=PL93xoMrxRJIuicqcd1UpFUYMfWKGp7JmI");
+                                                  if(await canLaunchUrl(url)){
+                                                    await launchUrl(url);
+                                                  }else{
+                                                    throw "can not load url";
+                                                  }
+                                                }
+                                            ),
+                                          ]
+                                      )
+                                  ),
+                                ),
+                                Container(
+                                  width: 120.0,
+                                  child: ElevatedButton(
+                                    onPressed: (){
+                                      cubit.changeText();
+                                    },
+                                    child:Text(
+                                      cubit.TRue?'اقل':'عرض المزيد',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 6,
+                                    blurStyle: BlurStyle.outer,
+                                    color: Colors.blue,
+                                  ),
+
+                                ]
+                            ),
+                            child: Text(
+                              '4',
+                              style: TextStyle(
+                                color: Colors.blue[350],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Card(
+                            elevation: 7,
+                            shadowColor: Colors.black,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'JetPack Compose',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Image(
+                                        width: 40,
+                                        height: 40,
+                                        image: AssetImage('assets/images/courses-images/css.png')),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 15.0),
+                                  child: Text(
+                                    'سنتعرف في هذهِ الدورة على مفهوم CSS وكيفية إضافته إلى ملف HTML لتنسيق صفحات الويب، كما سنتعرف على كيفية التحكم بألوان العناصر وأحجامها.',
+                                    textAlign: TextAlign.start,
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 70),
+                                  child: RichText(
+                                      maxLines: cubit.TRue? null: 1,
+                                      textAlign: TextAlign.right,
+                                      text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: '\n',
+                                            ),
+                                            TextSpan(
+                                                text: ' : الروابط \n',
+                                                style: TextStyle(
+                                                  fontSize: 25.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text: ' Mohamed Tamer',
+                                                style: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: 20.0,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text:' قناة \n  ',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0
+                                                )
+                                            ),
+                                            TextSpan(
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 20.0
+                                                ),
+                                                text: '\nclick here\n',
+                                                recognizer: TapGestureRecognizer()..onTap = () async{
+                                                  Uri url = Uri.parse("https://www.youtube.com/playlist?list=PLStwsNXljjnH1QU4jMXqpJt8SzlrBAXXC");
+                                                  if(await canLaunchUrl(url)){
+                                                    await launchUrl(url);
+                                                  }else{
+                                                    throw "can not load url";
+                                                  }
+                                                }
+                                            ),
+                                            TextSpan(
+                                              text: '\n',
+                                            ),
+                                            TextSpan(
+                                                text: 'Abdelrahman Gamal',
+                                                style: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: 20.0,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text:' قناة \n  ',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0
+                                                )
+                                            ),
+                                            TextSpan(
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 20.0
+                                                ),
+                                                text: '\nclick here\n',
+                                                recognizer: TapGestureRecognizer()..onTap = () async{
+                                                  Uri url = Uri.parse("https://www.youtube.com/playlist?list=PLknwEmKsW8OuTqUDaFRBiAViDZ5uI3VcE");
+                                                  if(await canLaunchUrl(url)){
+                                                    await launchUrl(url);
+                                                  }else{
+                                                    throw "can not load url";
+                                                  }
+                                                }
+                                            ),
+                                          ]
+                                      )
+                                  ),
+                                ),
+                                Container(
+                                  width: 120.0,
+                                  child: ElevatedButton(
+                                    onPressed: (){
+                                      cubit.changeText();
+                                    },
+                                    child:Text(
+                                      cubit.TRue?'اقل':'عرض المزيد',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 6,
+                                    blurStyle: BlurStyle.outer,
+                                    color: Colors.blue,
+                                  ),
+
+                                ]
+                            ),
+                            child: Text(
+                              '5',
+                              style: TextStyle(
+                                color: Colors.blue[350],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Card(
+                            elevation: 7,
+                            shadowColor: Colors.black,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'Firebase',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Image(
+                                        width: 30,
+                                        height: 30,
+                                        image: AssetImage('assets/images/courses-images/firebase.png')),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 15.0),
+                                  child: Text(
+                                    'سنتعرف في هذه الدورة علي firebase وهي منصة تطوير تطبيقات الهواتف المحمولة والويب توفر مجموعة أدوات وخدمات لبناء تطبيقات قابلة للتوسع بسرعة و تشمل خدمات مثل hosting, authentication, and cloud messaging',
+                                    textAlign: TextAlign.start,
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 130),
+                                  child: RichText(
+                                      maxLines: cubit.TRue? null: 1,
+                                      textAlign: TextAlign.right,
+                                      text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: '\n',
+                                            ),
+                                            TextSpan(
+                                                text: ' : الروابط \n',
+                                                style: TextStyle(
+                                                  fontSize: 25.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text: 'Omar Ahmed',
+                                                style: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: 20.0,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text:' قناة \n  ',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0
+                                                )
+                                            ),
+                                            TextSpan(
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 20.0
+                                                ),
+                                                text: '\nclick here\n',
+                                                recognizer: TapGestureRecognizer()..onTap = () async{
+                                                  Uri url = Uri.parse("https://www.youtube.com/playlist?list=PLwWuxCLlF_ucmA5Yq_2u6N9WrDOLWlxh7");
+                                                  if(await canLaunchUrl(url)){
+                                                    await launchUrl(url);
+                                                  }else{
+                                                    throw "can not load url";
+                                                  }
+                                                }
+                                            ),
+                                          ]
+                                      )
+                                  ),
+                                ),
+                                Container(
+                                  width: 120.0,
+                                  child: ElevatedButton(
+                                    onPressed: (){
+                                      cubit.changeText();
+                                    },
+                                    child:Text(
+                                      cubit.TRue?'اقل':'عرض المزيد',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 6,
+                                    blurStyle: BlurStyle.outer,
+                                    color: Colors.blue,
+                                  ),
+
+                                ]
+                            ),
+                            child: Text(
+                              '6',
+                              style: TextStyle(
+                                color: Colors.blue[350],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Card(
+                            elevation: 7,
+                            shadowColor: Colors.black,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'Git',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Image(
+                                        width: 30,
+                                        height: 30,
+                                        image: AssetImage('assets/images/courses-images/git.png')),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 15.0),
+                                  child: Text(
+                                    'سنتعرف في هذهِ الدورة على أساسيات مفهوم Git، وأنظمة التحكم بالنسخ وأنواعها، وإلى أي نوع من أنواع أنظمة التحكم بالنسخ ينتمي Git، بالإضافة إلى طريقة التعامل معه على المستوى الفردي.',
+                                    textAlign: TextAlign.start,
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:80),
+                                  child: RichText(
+                                      maxLines: cubit.TRue? null: 1,
+                                      textAlign: TextAlign.right,
+                                      text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: '\n',
+                                            ),
+                                            TextSpan(
+                                                text: ' : الروابط \n',
+                                                style: TextStyle(
+                                                  fontSize: 25.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text: '  Elzero Web School',
+                                                style: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: 20.0,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text:' قناة \n  ',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0
+                                                )
+                                            ),
+                                            TextSpan(
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 20.0
+                                                ),
+                                                text: '\nclick here\n',
+                                                recognizer: TapGestureRecognizer()..onTap = () async{
+                                                  Uri url = Uri.parse("https://www.youtube.com/playlist?list=PLDoPjvoNmBAw4eOj58MZPakHjaO3frVMF");
+                                                  if(await canLaunchUrl(url)){
+                                                    await launchUrl(url);
+                                                  }else{
+                                                    throw "can not load url";
+                                                  }
+                                                }
+                                            ),
+                                          ]
+                                      )
+                                  ),
+                                ),
+                                Container(
+                                  width: 120.0,
+                                  child: ElevatedButton(
+                                    onPressed: (){
+                                      cubit.changeText();
+                                    },
+                                    child:Text(
+                                      cubit.TRue?'اقل':'عرض المزيد',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(15),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 6,
+                                    blurStyle: BlurStyle.outer,
+                                    color: Colors.blue,
+                                  ),
+
+                                ]
+                            ),
+                            child: Text(
+                              '7',
+                              style: TextStyle(
+                                color: Colors.blue[350],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Card(
+                            elevation: 7,
+                            shadowColor: Colors.black,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'UI/UX',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25.0,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                    Image(
+                                        width: 50,
+                                        height: 50,
+                                        image: AssetImage('assets/images/courses-images/UI-UX.png')),
+                                    SizedBox(
+                                      width: 10.0,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child: Text(
+                                    'سنتعرف في هذهِ الدورة على أساسيات واجه المستخدم.',
+                                    textAlign: TextAlign.start,
+                                    textDirection: TextDirection.rtl,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:130),
+                                  child: RichText(
+                                      maxLines: cubit.TRue? null: 1,
+                                      textAlign: TextAlign.right,
+                                      text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: '\n',
+                                            ),
+                                            TextSpan(
+                                                text: ' : الروابط \n',
+                                                style: TextStyle(
+                                                  fontSize: 25.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text: 'Alaa Darwish',
+                                                style: TextStyle(
+                                                  color: Colors.blue,
+                                                  fontSize: 20.0,
+                                                )
+                                            ),
+                                            TextSpan(
+                                                text:' قناة \n  ',
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20.0
+                                                )
+                                            ),
+                                            TextSpan(
+                                                style: TextStyle(
+                                                    color: Colors.blue,
+                                                    fontSize: 20.0
+                                                ),
+                                                text: '\nclick here\n',
+                                                recognizer: TapGestureRecognizer()..onTap = () async{
+                                                  Uri url = Uri.parse("https://www.youtube.com/watch?v=EqSd8vXGcBk&list=PLRemWV5koZLBR1khj5OlC_xLkdsI8G5DF");
+                                                  if(await canLaunchUrl(url)){
+                                                    await launchUrl(url);
+                                                  }else{
+                                                    throw "can not load url";
+                                                  }
+                                                }
+                                            ),
+                                          ]
+                                      )
+                                  ),
+                                ),
+                                Container(
+                                  width: 120.0,
+                                  child: ElevatedButton(
+                                    onPressed: (){
+                                      cubit.changeText();
+                                    },
+                                    child:Text(
+                                      cubit.TRue?'اقل':'عرض المزيد',
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+
+
+                      ],
+                    )
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+
+
